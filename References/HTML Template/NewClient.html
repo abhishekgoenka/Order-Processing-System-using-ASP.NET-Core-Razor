@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Processing System</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/sb-admin-2.css" rel="stylesheet" />
+    <link href="Content/custom.css" rel="stylesheet" />
+
+    <script src="scripts/jquery-1.10.2.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Order Processing System</a>
+            </div>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <br />
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <span><i class="fa fa-edit fa-fw"></i> Clients</span>
+                            <ul class="nav nav-second-level in">
+                                <li>
+                                    <a href="#">New Client</a>
+                                </li>
+                                <li>
+                                    <a href="#">All Clients</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            
+                            <span><i class="fa fa-edit fa-fw"></i> Orders</span>
+                            <ul class="nav nav-second-level in">
+                                <li>
+                                    <a href="#">New Order</a>
+                                </li>
+                                <li>
+                                    <a href="#">In Progress Orders</a>
+                                </li>
+
+                                <li>
+                                    <a href="#">Order History</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-edit fa-fw"></i> Inventory</span>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">New Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Current Inventory</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Begin Page Wrapper -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Add a New Client <br />
+                        <small>We're always happy to gain new customers.</small>
+                    </h1>
+                </div>
+            </div>
+            <form id="full-page-form" action="/Home/FeatureRequest" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Date</label>
+                            <input type="text" class="form-control" />
+                        </div>
+						 <div class="form-group">
+                            <label>Client Type</label>
+                            <select class="form-control">
+								<option>Individual</option>
+								<option>Small Business</option>
+							</select>
+                        </div>
+                    </div>
+                </div>
+					
+						<div class="row">
+                            <div class="col-md-6 form-group" >
+                                <label>Notes</label>
+                                <textarea type="text" class="form-control" rows="5"  ></textarea>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Billing Address</h3>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>Street</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>State</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Zip</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Mailing Address</h3>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>Street</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label>State</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Zip</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <input type="submit" class="pull-right btn btn-primary" />
+                    </div>
+                </div>
+            </form> 
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2016 Abhishek Goenka<span class="pull-right">Contact Help Desk at 555-555-1342</span></p>
+    </footer>
+    <!-- End Page Wrapper -->
+</body>
+</html>

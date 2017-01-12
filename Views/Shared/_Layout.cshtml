@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Processing System</title>
+    <environment Names="development">
+        <link href="~/css/bootstrap.css" rel="stylesheet"/>
+        <link href="~/css/font-awesome.css" rel="stylesheet"/>
+        <link href="~/css/sb-admin-2.css" rel="stylesheet"/>
+        <link href="~/css/custom.css" rel="stylesheet"/>
+    </environment>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Order Processing System</a>
+        </div>
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <br/>
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <span><i class="fa fa-edit fa-fw"></i> Clients</span>
+                        <ul class="nav nav-second-level in">
+                            <li>
+                                <a href="#">New Client</a>
+                            </li>
+                            <li>
+                                <a href="#">All Clients</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+
+                        <span><i class="fa fa-edit fa-fw"></i> Orders</span>
+                        <ul class="nav nav-second-level in">
+                            <li>
+                                <a href="#">New Order</a>
+                            </li>
+                            <li>
+                                <a href="#">In Progress Orders</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Order History</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-edit fa-fw"></i> Inventory</span>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">New Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Current Inventory</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Begin View Wrapper -->
+    @RenderBody();
+    <!-- End View Wrapper -->
+</div>
+<footer>
+    <p>
+        &copy; 2016 Abhishek Goenka<span class="pull-right">Contact Help Desk at 555-555-1342</span>
+    </p>
+</footer>
+<environment Names="development">
+    <script src="~/js/jquery-1.10.2.js"></script>
+    <script src="~/js/jquery.validate.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.js"></script>
+</environment>
+</body>
+</html>
