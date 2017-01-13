@@ -31,7 +31,7 @@
                         <span><i class="fa fa-edit fa-fw"></i> Clients</span>
                         <ul class="nav nav-second-level in">
                             <li>
-                                <a href="#">New Client</a>
+                                @Html.ActionLink("New Client", "NewClient", "Client")
                             </li>
                             <li>
                                 <a href="#">All Clients</a>
@@ -74,9 +74,16 @@
     <!-- End View Wrapper -->
 </div>
 <footer>
-    <p>
-        &copy; 2016 Abhishek Goenka<span class="pull-right">Contact Help Desk at 555-555-1342</span>
-    </p>
+    @if (IsSectionDefined("Footer"))
+    {
+        @RenderSection("Footer", false)
+    }
+    else
+    {
+        <p>
+            &copy; 2016 Abhishek Goenka<span class="pull-right">Contact Help Desk at 555-555-1342</span>
+        </p>
+    }
 </footer>
 <environment Names="development">
     <script src="~/js/jquery-1.10.2.js"></script>

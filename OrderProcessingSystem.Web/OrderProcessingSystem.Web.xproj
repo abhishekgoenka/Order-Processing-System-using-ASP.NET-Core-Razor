@@ -19,5 +19,10 @@
     <DnxInvisibleContent Include="bower.json" />
     <DnxInvisibleContent Include=".bowerrc" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrderProcessingSystem.Contracts\OrderProcessingSystem.Contracts.csproj" />
+    <ProjectReference Include="..\OrderProcessingSystem.Data\OrderProcessingSystem.Data.csproj" />
+    <ProjectReference Include="..\OrderProcessingSystem.Models\OrderProcessingSystem.Models.csproj" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

@@ -1,0 +1,108 @@
+﻿<!-- Begin Page Wrapper -->
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Add a New Client <br/>
+                <small>We're always happy to gain new customers.</small>
+            </h1>
+        </div>
+    </div>
+    <form id="full-page-form" action="/Home/FeatureRequest" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Contact Date</label>
+                    <input type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Client Type</label>
+                    <select class="form-control">
+                        <option>Individual</option>
+                        <option>Small Business</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>Notes</label>
+                <textarea type="text" class="form-control" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Billing Address</h3>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>Street</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>State</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Zip</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Mailing Address</h3>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>Street</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>State</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Zip</label>
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <input type="submit" class="pull-right btn btn-primary"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Footer {
+    <p>
+        Make sure the send a welcome package to new client
+    </p>
+}

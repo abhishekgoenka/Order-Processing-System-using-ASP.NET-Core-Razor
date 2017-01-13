@@ -1,16 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using OrderProcessingSystem.Contracts;
+using OrderProcessingSystem.Data;
+using OrderProcessingSystem.Data.Helpers;
 
-namespace OrderProcessingSystem.Controllers
+namespace OrderProcessingSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IOrderProcessingUow uow = new OrderProcessingUow(new RepositoryProvider(new RepositoryFactories())); 
+
         public IActionResult Index()
         {
-            return View();
+            try
+            {
+                var orders = uow.Orders.GetAll().ToList();
+                return View(orders);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public IActionResult About()
