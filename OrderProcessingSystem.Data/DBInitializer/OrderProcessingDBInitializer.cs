@@ -17,6 +17,7 @@ namespace OrderProcessingSystem.Data.DBInitializer
         protected override void Seed(OrderProcessingDbContext context)
         {
             SeedOrders(context);
+            SeedClient(context);
             base.Seed(context);
         }
 
@@ -48,6 +49,23 @@ namespace OrderProcessingSystem.Data.DBInitializer
                 Name = "Banner",
                 Description = "10 Banner required for Aftek",
                 LastUpdated = DateTime.Now.AddDays(-2)
+            });
+        }
+
+        private void SeedClient(OrderProcessingDbContext context)
+        {
+            context.Clients.Add(new Client
+            {
+                FirstName = "Abhishek",
+                LastName = "Goenka",
+                ClientType = "Individual",
+                ContractDate = DateTime.Now.AddYears(-5),
+                Email = "abhishek@nblog.in",
+                Phone = "9008719714",
+                Notes = "Test Notes",
+                CompanyName = "No Company",
+                BillingAddress = new Address {Id = 1, Street = "ABV", City = "Bangalore", State = "Karnataka", Zip = "560102"},
+                MailingAddress = new Address {Id = 2, Street = "ABV", City = "Bangalore", State = "Karnataka", Zip = "560102"},
             });
         }
     }

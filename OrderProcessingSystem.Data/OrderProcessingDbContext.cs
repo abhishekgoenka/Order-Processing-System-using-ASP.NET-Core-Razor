@@ -19,10 +19,25 @@ namespace OrderProcessingSystem.Data
         }
 
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //One to One RelationShip : Each client can have one Billing Address
+            //modelBuilder.Entity<Address>()
+            //    .HasRequired(e => e.Client)
+            //    .WithOptional(e => e.BillingAddress)
+            //    .WillCascadeOnDelete(true);
+            //modelBuilder.Entity<Client>()
+            //    .HasOptional(e => e.BillingAddress)
+            //    .WithRequired(e => e.Client)
+            //    .WillCascadeOnDelete(true);
+
+            //One to One RelationShip : Each client can have one Mailing Address
+            //modelBuilder.Entity<Address>()
+            //    .HasRequired(e => e.Client)
+            //    .WithOptional(e => e.MailingAddress);
 
             //One to Many relationship : ListItem can have my items, 
             //modelBuilder.Entity<ListItem>()
@@ -30,7 +45,7 @@ namespace OrderProcessingSystem.Data
             //    .WithMany(e => e.ListItems)
             //    .HasForeignKey(e => e.ItemId)
             //    .WillCascadeOnDelete(true);
-            
+
 
 
             base.OnModelCreating(modelBuilder);

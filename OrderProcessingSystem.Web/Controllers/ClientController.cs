@@ -25,7 +25,11 @@ namespace OrderProcessingSystem.Web.Controllers
         [HttpPost]
         public IActionResult NewClient(Client newClient)
         {
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+                return RedirectToAction("Index", "Home");
+
+            // response is not valid. Return to same view
+            return View(newClient);
         }
     }
 }

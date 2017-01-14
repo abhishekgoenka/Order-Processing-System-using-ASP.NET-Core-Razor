@@ -29,6 +29,10 @@
                     @Html.TextBoxFor(e => e.CompanyName, new {@class = "form-control"})
                 </div>
                 <div class="form-group">
+                    @Html.LabelFor(e => e.Email)
+                    @Html.TextBoxFor(e => e.Email, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
                     @Html.LabelFor(e => e.Phone)
                     @Html.TextBoxFor(e => e.Phone, new {@class = "form-control"})
                 </div>
@@ -53,8 +57,10 @@
 
         <div class="row">
             <div class="col-md-6 form-group">
-                <label>Notes</label>
-                <textarea type="text" class="form-control" rows="5"></textarea>
+                @Html.LabelFor(e => e.Notes)
+                @Html.TextAreaFor(e => e.Notes, new { @class = "form-control" })
+                @*<label>Notes</label>
+                <textarea type="text" class="form-control" rows="5"></textarea>*@
             </div>
         </div>
         <div class="row">

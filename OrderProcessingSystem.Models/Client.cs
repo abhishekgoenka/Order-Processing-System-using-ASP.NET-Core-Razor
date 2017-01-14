@@ -45,7 +45,7 @@ namespace OrderProcessingSystem.Models
         /// <summary>
         ///     Contract date. The value can be null if no contract date exits
         /// </summary>
-        [Display(Name = "Contract")]
+        [Display(Name = "Contract Date")]
         public DateTime? ContractDate { get; set; }
 
         /// <summary>
@@ -66,11 +66,11 @@ namespace OrderProcessingSystem.Models
         /// <summary>
         ///     Billing Address
         /// </summary>
-        public Address BillingAddress { get; set; }
+        public virtual Address BillingAddress { get; set; }
 
         /// <summary>
         ///     Mailing Address
         /// </summary>
-        public Address MailingAddress { get; set; }
+        public virtual Address MailingAddress { get; set; }
     }
 }
