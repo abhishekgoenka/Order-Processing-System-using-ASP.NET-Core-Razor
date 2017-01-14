@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
 using OrderProcessingSystem.Data;
@@ -9,20 +8,14 @@ namespace OrderProcessingSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IOrderProcessingUow uow = new OrderProcessingUow(new RepositoryProvider(new RepositoryFactories())); 
+        private readonly IOrderProcessingUow uow =
+            new OrderProcessingUow(new RepositoryProvider(new RepositoryFactories()));
 
         public IActionResult Index()
         {
-            try
-            {
-                var orders = uow.Orders.GetAll().ToList();
-                return View(orders);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            var orders = uow.Orders.GetAll().ToList();
+            ViewBag.Orders = orders;
+            return View();
         }
 
         public IActionResult About()

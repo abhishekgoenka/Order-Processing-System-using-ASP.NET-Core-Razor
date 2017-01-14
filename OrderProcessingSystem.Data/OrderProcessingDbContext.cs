@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using OrderProcessingSystem.Data.DBInitializer;
 using OrderProcessingSystem.Models;
 
@@ -9,8 +10,10 @@ namespace OrderProcessingSystem.Data
     /// </summary>
     public class OrderProcessingDbContext : DbContext
     {
+        //todo : move to config file
+        private const String CONNECTION_STRING = "Data Source=(local);Initial Catalog=OrderProcessing;Persist Security Info=True;User ID=sa;Password=Computer#1";
         public OrderProcessingDbContext()
-            : base("Data Source=(local);Initial Catalog=OrderProcessing;Persist Security Info=True;User ID=sa;Password=Computer#1")
+            : base(CONNECTION_STRING)
         {
             Database.SetInitializer(new OrderProcessingDBInitializer());
         }

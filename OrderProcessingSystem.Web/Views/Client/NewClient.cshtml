@@ -1,4 +1,6 @@
-﻿<!-- Begin Page Wrapper -->
+﻿@model OrderProcessingSystem.Models.Client
+
+<!-- Begin Page Wrapper -->
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -8,35 +10,43 @@
             </h1>
         </div>
     </div>
-    <form id="full-page-form" action="/Home/FeatureRequest" method="post">
+    @using (Html.BeginForm("newClient", "Client", FormMethod.Post))
+    {
         <div class="row">
             <div class="col-md-6">
+                @Html.ValidationSummary(false)
                 <div class="form-group">
-                    <label>First Name</label>
-                    <input type="text" class="form-control"/>
+                    @Html.LabelFor(e => e.FirstName)
+                    @Html.TextBoxFor(e => e.FirstName, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(e => e.FirstName)
                 </div>
                 <div class="form-group">
-                    <label>Last Name</label>
-                    <input type="text" class="form-control"/>
+                    @Html.LabelFor(e => e.LastName)
+                    @Html.TextBoxFor(e => e.LastName, new {@class = "form-control"})
                 </div>
                 <div class="form-group">
-                    <label>Company Name</label>
-                    <input type="text" class="form-control"/>
+                    @Html.LabelFor(e => e.CompanyName)
+                    @Html.TextBoxFor(e => e.CompanyName, new {@class = "form-control"})
                 </div>
                 <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" class="form-control"/>
+                    @Html.LabelFor(e => e.Phone)
+                    @Html.TextBoxFor(e => e.Phone, new {@class = "form-control"})
                 </div>
                 <div class="form-group">
-                    <label>Contact Date</label>
-                    <input type="text" class="form-control"/>
+                    @Html.LabelFor(e => e.ContractDate)
+                    @Html.TextBoxFor(e => e.ContractDate, new {@class = "form-control"})
                 </div>
                 <div class="form-group">
-                    <label>Client Type</label>
-                    <select class="form-control">
-                        <option>Individual</option>
-                        <option>Small Business</option>
-                    </select>
+                    @Html.LabelFor(e => e.ClientType)
+                    @{
+                        var clientType = new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "Small Business"},
+                            new SelectListItem {Text = "Individual"},
+                            new SelectListItem {Text = "Corporation"}
+                        };
+                    }
+                    @Html.DropDownListFor(e => e.ClientType, clientType, new {@class = "form-control"})
                 </div>
             </div>
         </div>
@@ -52,22 +62,22 @@
                 <h3>Billing Address</h3>
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label>Street</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.BillingAddress.Street)
+                        @Html.TextBoxFor(e => e.BillingAddress.Street, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6 form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.BillingAddress.City)
+                        @Html.TextBoxFor(e => e.BillingAddress.City, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label>State</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.BillingAddress.State)
+                        @Html.TextBoxFor(e => e.BillingAddress.State, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6 form-group">
-                        <label>Zip</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.BillingAddress.Zip)
+                        @Html.TextBoxFor(e => e.BillingAddress.Zip, new { @class = "form-control" })
                     </div>
                 </div>
             </div>
@@ -77,28 +87,28 @@
                 <h3>Mailing Address</h3>
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label>Street</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.MailingAddress.Street)
+                        @Html.TextBoxFor(e => e.MailingAddress.Street, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6 form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.MailingAddress.City)
+                        @Html.TextBoxFor(e => e.MailingAddress.City, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label>State</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.MailingAddress.State)
+                        @Html.TextBoxFor(e => e.MailingAddress.State, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6 form-group">
-                        <label>Zip</label>
-                        <input type="text" class="form-control"/>
+                        @Html.LabelFor(e => e.MailingAddress.Zip)
+                        @Html.TextBoxFor(e => e.MailingAddress.Zip, new { @class = "form-control" })
                     </div>
                 </div>
                 <input type="submit" class="pull-right btn btn-primary"/>
             </div>
         </div>
-    </form>
+    }
 </div>
 
 @section Footer {

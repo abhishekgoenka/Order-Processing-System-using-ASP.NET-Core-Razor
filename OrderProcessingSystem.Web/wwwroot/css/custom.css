@@ -1,52 +1,34 @@
-﻿.navbar, footer {
-    background-color: #5cb85c;
-}
+﻿.navbar, footer { background-color: #5cb85c; }
 
-.navbar-collapse {
-    max-height: none;
-}
+.navbar-collapse { max-height: none; }
 
-.navbar-default .navbar-brand {
-    color: white;
-}
+.navbar-default .navbar-brand { color: white; }
 
-a.active {
-    background: #428bca;
-}
+a.active { background: #428bca; }
 
 footer p {
-    font-size: 1.25em;
     color: white;
+    font-size: 1.25em;
     padding: 25px;
 }
 
-.nav>li>span {
-    position: relative;
+.nav > li > span {
+    background: none;
     display: block;
     padding: 10px 15px;
+    position: relative;
     text-decoration: none;
-    background: none;
 }
 
-.widget .table tr td, .widget .table tr th  {
-    text-align:center !important;
-}
+.widget .table tr td, .widget .table tr th { text-align: center !important; }
 
-body .list-view thead>tr>th {
-    text-align: left;
-}
+body .list-view thead > tr > th { text-align: left; }
 
-.panel .btn-primary {
-    color: white !important;
-}
+.panel .btn-primary { color: white !important; }
 
-.thread-item {
-    margin: 25px 0;
-}
+.thread-item { margin: 25px 0; }
 
-ul {
-    padding-left: 10px;
-}
+ul { padding-left: 10px; }
 
 html body {
     margin-bottom: 0px;
@@ -54,22 +36,30 @@ html body {
     padding-top: 0px;
 }
 
-.navbar-brand:hover {
-    color: white !important;
+.navbar-brand:hover { color: white !important; }
+
+.panel-yellow a, .panel-red a { color: #428bca !important; }
+
+.progress { margin: 10px 0; }
+
+.panel-heading { padding: 5px 10px; }
+
+#full-page-form { margin-bottom: 50px; }
+
+/* Styles for validation helpers*/
+
+.field-validation-error { color: #ff0000; }
+
+.field-validation-valid { display: none; }
+
+.input-validation-error {
+    background-color: #ffeeee !important;
+    border: 1px solid #ff0000 !important;
 }
 
-.panel-yellow a, .panel-red a {
-    color: #428bca !important;
+.validation-summary-errors {
+    color: #ff0000 !important;
+    font-weight: bold !important;
 }
 
-.progress {
-    margin: 10px 0;
-}
-
-.panel-heading { 
-    padding: 5px 10px;
-}
-
-#full-page-form {
-    margin-bottom: 50px;
-}
+.validation-summary-valid { display: none; }

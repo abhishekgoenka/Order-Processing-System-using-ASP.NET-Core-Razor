@@ -15,72 +15,24 @@
                 </div>
                 <div class="panel-body">
                     <div class="list-group">
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">
-                                List group item heading
-                                <span class="pull-right">Last Updated: 9/18/2016 8:12:38 PM</span>
-                            </h4>
-                            <p class="list-group-item-text">
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit...
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">
-                                List group item heading
-                                <span class="pull-right">Last Updated: 9/18/2016 8:12:38 PM</span>
-                            </h4>
-                            <p class="list-group-item-text">
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit...
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                    <span class="sr-only">20% Complete</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit...
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                    <span class="sr-only">20% Complete</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit...
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">List group item heading</h4>
-                            <p class="list-group-item-text">
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit...
-                            </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                    <span class="sr-only">20% Complete</span>
-                                </div>
-                            </div>
-                        </a>
+                        
+                            @foreach (var order in ViewBag.Orders)
+                            {
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">
+                                        @order.Name
+                                        <span class="pull-right">Last Updated: @order.LastUpdated</span>
+                                    </h4>
+                                    <p class="list-group-item-text">
+                                        @order.Description
+                                    </p>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            }
                     </div>
                 </div>
                 <div class="panel-footer">
