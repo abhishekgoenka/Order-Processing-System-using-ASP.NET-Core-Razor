@@ -1,15 +1,17 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
-using OrderProcessingSystem.Data;
-using OrderProcessingSystem.Data.Helpers;
 
 namespace OrderProcessingSystem.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IOrderProcessingUow uow =
-            new OrderProcessingUow(new RepositoryProvider(new RepositoryFactories()));
+        private readonly IOrderProcessingUow uow;
+
+        public HomeController(IOrderProcessingUow uow)
+        {
+            this.uow = uow;
+        }
 
         public IActionResult Index()
         {

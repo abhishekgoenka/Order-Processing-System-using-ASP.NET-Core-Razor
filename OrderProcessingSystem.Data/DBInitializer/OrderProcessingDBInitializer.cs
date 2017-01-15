@@ -18,6 +18,7 @@ namespace OrderProcessingSystem.Data.DBInitializer
             SeedOrders(context);
             SeedClient(context);
             SeedItem(context);
+            SeedClientType(context);
             base.Seed(context);
         }
 
@@ -78,6 +79,13 @@ namespace OrderProcessingSystem.Data.DBInitializer
             context.Items.Add(new Item {Name = "Table Cloth"});
             context.Items.Add(new Item {Name = "Banner"});
             context.Items.Add(new Item {Name = "Streamers"});
+        }
+
+        private void SeedClientType(OrderProcessingDbContext context)
+        {
+            context.ClientTypes.Add(new ClientType {Text = "Small Business"});
+            context.ClientTypes.Add(new ClientType { Text = "Individual" });
+            context.ClientTypes.Add(new ClientType { Text = "Corporation" });
         }
     }
 }

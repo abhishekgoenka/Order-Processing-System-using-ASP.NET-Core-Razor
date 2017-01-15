@@ -1,5 +1,6 @@
-﻿@model OrderProcessingSystem.Models.Client
-
+﻿@using OrderProcessingSystem.Contracts
+@model OrderProcessingSystem.Models.Client
+@inject IOrderProcessingUow Uow
 <!-- Begin Page Wrapper -->
 <div id="page-wrapper">
     <div class="row">
@@ -42,15 +43,7 @@
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(e => e.ClientType)
-                    @{
-                        var clientType = new List<SelectListItem>
-                        {
-                            new SelectListItem {Text = "Small Business"},
-                            new SelectListItem {Text = "Individual"},
-                            new SelectListItem {Text = "Corporation"}
-                        };
-                    }
-                    @Html.DropDownListFor(e => e.ClientType, clientType, new {@class = "form-control"})
+                    @Html.DropDownListFor(e => e.ClientType, Uow.ClientTypes.GetAll().Select(e => new SelectListItem { Text = e.Text}), new {@class = "form-control"})
                 </div>
             </div>
         </div>
@@ -59,8 +52,6 @@
             <div class="col-md-6 form-group">
                 @Html.LabelFor(e => e.Notes)
                 @Html.TextAreaFor(e => e.Notes, new { @class = "form-control" })
-                @*<label>Notes</label>
-                <textarea type="text" class="form-control" rows="5"></textarea>*@
             </div>
         </div>
         <div class="row">

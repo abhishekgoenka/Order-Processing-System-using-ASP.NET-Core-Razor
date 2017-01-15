@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
-using OrderProcessingSystem.Data;
-using OrderProcessingSystem.Data.Helpers;
 using OrderProcessingSystem.Models;
 
 namespace OrderProcessingSystem.Web.Controllers
@@ -12,8 +10,12 @@ namespace OrderProcessingSystem.Web.Controllers
     /// </summary>
     public class ItemController : Controller
     {
-        private readonly IOrderProcessingUow uow =
-            new OrderProcessingUow(new RepositoryProvider(new RepositoryFactories()));
+        private readonly IOrderProcessingUow uow;
+
+        public ItemController(IOrderProcessingUow uow)
+        {
+            this.uow = uow;
+        }
 
         /// <summary>
         ///     Show add new item page
@@ -41,10 +43,10 @@ namespace OrderProcessingSystem.Web.Controllers
                     uow.Commit();
                     return RedirectToAction("Index", "Home");
                 }
-                
-                
+
+
                 // Update Item
-                Item item = uow.Items.GetById(newItem.Id);
+                var item = uow.Items.GetById(newItem.Id);
                 if (item == null) return NotFound("Item not found");
 
                 item.Name = newItem.Name;

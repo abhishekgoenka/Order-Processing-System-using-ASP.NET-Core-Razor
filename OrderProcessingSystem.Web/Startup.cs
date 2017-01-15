@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OrderProcessingSystem.Contracts;
+using OrderProcessingSystem.Data;
+using OrderProcessingSystem.Data.Helpers;
 
-namespace OrderProcessingSystem
+namespace OrderProcessingSystem.Web
 {
     public class Startup
     {
@@ -28,6 +27,9 @@ namespace OrderProcessingSystem
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddScoped<RepositoryFactories, RepositoryFactories>();
+            services.AddScoped<IRepositoryProvider, RepositoryProvider>();
+            services.AddScoped<IOrderProcessingUow, OrderProcessingUow>();
             services.AddMvc();
         }
 

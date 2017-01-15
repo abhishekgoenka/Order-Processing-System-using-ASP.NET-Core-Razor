@@ -21,6 +21,7 @@ namespace OrderProcessingSystem.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Item> Items { get; set; }
+        public DbSet<ClientType> ClientTypes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

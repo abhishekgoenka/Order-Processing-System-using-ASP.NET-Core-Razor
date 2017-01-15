@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
-using OrderProcessingSystem.Data;
-using OrderProcessingSystem.Data.Helpers;
 using OrderProcessingSystem.Models;
 
 namespace OrderProcessingSystem.Web.Controllers
@@ -12,8 +10,12 @@ namespace OrderProcessingSystem.Web.Controllers
     /// </summary>
     public class ClientController : Controller
     {
-        private readonly IOrderProcessingUow uow =
-            new OrderProcessingUow(new RepositoryProvider(new RepositoryFactories()));
+        private readonly IOrderProcessingUow uow;
+
+        public ClientController(IOrderProcessingUow uow)
+        {
+            this.uow = uow;
+        }
 
         /// <summary>
         ///     Route to new client
@@ -47,7 +49,7 @@ namespace OrderProcessingSystem.Web.Controllers
                 uow.Commit();
                 return RedirectToAction("Index", "Home");
             }
-                
+
 
             // response is not valid. Return to same view
             return View(newClient);
