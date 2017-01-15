@@ -43,10 +43,10 @@
                     <span><i class="fa fa-edit fa-fw"></i> Inventory</span>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">New Item</a>
+                            @Html.ActionLink("New Item", "NewItem", "Item")
                         </li>
                         <li>
-                            <a href="#">Current Inventory</a>
+                            @Html.ActionLink("Current Inventory", "CurrentInventory", "Item")
                         </li>
                     </ul>
                 </li>

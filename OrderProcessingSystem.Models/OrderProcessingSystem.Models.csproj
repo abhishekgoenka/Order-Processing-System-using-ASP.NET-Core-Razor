@@ -45,6 +45,7 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="InventoryItemViewModel.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="ItemServeryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

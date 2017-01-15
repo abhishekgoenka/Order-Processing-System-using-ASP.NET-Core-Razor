@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using OrderProcessingSystem.Models;
 
 namespace OrderProcessingSystem.Data.DBInitializer
 {
     /// <summary>
-    /// Custom DB initializer. This will seed data.
+    ///     Custom DB initializer. This will seed data.
     /// </summary>
     public class OrderProcessingDBInitializer : CreateDatabaseIfNotExists<OrderProcessingDbContext>
     {
         /// <summary>
-        /// Seed items
+        ///     Seed items
         /// </summary>
         /// <param name="context">DBContext</param>
         protected override void Seed(OrderProcessingDbContext context)
         {
             SeedOrders(context);
             SeedClient(context);
+            SeedItem(context);
             base.Seed(context);
         }
 
@@ -64,9 +64,20 @@ namespace OrderProcessingSystem.Data.DBInitializer
                 Phone = "9008719714",
                 Notes = "Test Notes",
                 CompanyName = "No Company",
-                BillingAddress = new Address {Id = 1, Street = "ABV", City = "Bangalore", State = "Karnataka", Zip = "560102"},
-                MailingAddress = new Address {Id = 2, Street = "ABV", City = "Bangalore", State = "Karnataka", Zip = "560102"},
+                BillingAddress =
+                    new Address {Id = 1, Street = "ABV", City = "Bangalore", State = "Karnataka", Zip = "560102"},
+                MailingAddress =
+                    new Address {Id = 2, Street = "ABV", City = "Bangalore", State = "Karnataka", Zip = "560102"}
             });
+        }
+
+        private void SeedItem(OrderProcessingDbContext context)
+        {
+            context.Items.Add(new Item {Name = "Hoodie"});
+            context.Items.Add(new Item {Name = "T-Shirt", Description = "This is fastest selling item"});
+            context.Items.Add(new Item {Name = "Table Cloth"});
+            context.Items.Add(new Item {Name = "Banner"});
+            context.Items.Add(new Item {Name = "Streamers"});
         }
     }
 }

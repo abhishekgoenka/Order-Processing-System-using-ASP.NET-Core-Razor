@@ -1,0 +1,50 @@
+﻿@model OrderProcessingSystem.Models.Item
+
+<!-- Begin Page Wrapper -->
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Add a Item <br/>
+                <small>We are happy to extend our business by adding new item to our inventory</small>
+            </h1>
+        </div>
+    </div>
+    @using (Html.BeginForm("NewItem", "Item", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-6">
+                @Html.ValidationSummary(false)
+                @Html.HiddenFor(e => e.Id)
+                <div class="form-group">
+                    @Html.LabelFor(e => e.Name)
+                    @Html.TextBoxFor(e => e.Name, new {@class = "form-control"})
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(e => e.Qty)
+                    @Html.TextBoxFor(e => e.Qty, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(e => e.Description)
+                @Html.TextAreaFor(e => e.Description, new {@class = "form-control"})
+                
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <input type="submit" class="pull-right btn btn-primary" value="Save" />
+            </div>
+        </div>
+    }
+</div>
+
+@section Footer {
+    <p>
+        Don’t forget to update inventory after adding new item
+    </p>
+}

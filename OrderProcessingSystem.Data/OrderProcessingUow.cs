@@ -25,6 +25,7 @@ namespace OrderProcessingSystem.Data
         // Repositories
         public IRepository<Order> Orders => GetStandardRepo<Order>();
         public IRepository<Client> Clients => GetStandardRepo<Client>();
+        public IRepository<Item> Items => GetStandardRepo<Item>();
 
         /// <summary>
         ///     Save pending changes to the database
