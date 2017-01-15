@@ -1,0 +1,25 @@
+﻿<div class="panel panel-green widget">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-3">
+                <i class="fa fa-tasks fa-3x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+                <h3>Idea Center</h3>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 feature-request">
+                <p>Have an idea for new marketing materials or methods? Don't keep it to yourself!</p>
+                <form action="/Home/FeatureRequest" method="post">
+
+                    <input type="text" class="form-control" placeholder="Subject " /> <br />
+                    <textarea class="form-control" id="suggestion" rows="5" type="text" placeholder="Description" name="suggestion"></textarea><br />
+                    <input type="submit" value="Submit" class="improvement btn btn-primary pull-right" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
