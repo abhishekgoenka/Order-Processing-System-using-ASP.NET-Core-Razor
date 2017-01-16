@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OrderProcessingSystem.Models
 {
@@ -24,5 +25,10 @@ namespace OrderProcessingSystem.Models
         ///     Current Item Qty. Default is 0
         /// </summary>
         public int Qty { get; set; } = 0;
+
+        /// <summary>
+        ///     Navigational Property: Orders
+        /// </summary>
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

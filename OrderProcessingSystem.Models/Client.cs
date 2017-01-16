@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OrderProcessingSystem.Models
@@ -72,5 +73,6 @@ namespace OrderProcessingSystem.Models
         ///     Mailing Address
         /// </summary>
         public virtual Address MailingAddress { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

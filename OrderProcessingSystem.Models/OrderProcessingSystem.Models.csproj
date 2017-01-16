@@ -49,6 +49,7 @@
     <Compile Include="Item.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="ItemServeryViewModel.cs" />
+    <Compile Include="OrderStage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

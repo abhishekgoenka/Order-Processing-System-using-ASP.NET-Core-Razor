@@ -12,6 +12,7 @@ namespace OrderProcessingSystem.Contracts
         IRepository<Client> Clients { get; }
         IRepository<Item> Items { get; }
         IRepository<ClientType> ClientTypes { get; }
+        IRepository<OrderStage> OrderStages { get; }
 
         // Save pending changes to the data store.
         void Commit();

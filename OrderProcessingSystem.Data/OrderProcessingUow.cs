@@ -27,6 +27,7 @@ namespace OrderProcessingSystem.Data
         public IRepository<Client> Clients => GetStandardRepo<Client>();
         public IRepository<Item> Items => GetStandardRepo<Item>();
         public IRepository<ClientType> ClientTypes => GetStandardRepo<ClientType>();
+        public IRepository<OrderStage> OrderStages => GetStandardRepo<OrderStage>();
 
         /// <summary>
         ///     Save pending changes to the database

@@ -19,38 +19,39 @@ namespace OrderProcessingSystem.Data.DBInitializer
             SeedClient(context);
             SeedItem(context);
             SeedClientType(context);
+            SeedOrderStages(context);
             base.Seed(context);
         }
 
         private void SeedOrders(OrderProcessingDbContext context)
         {
-            context.Orders.Add(new Order
-            {
-                Name = "Hoodie",
-                Description = "25 hoodies required for Mphasis",
-                LastUpdated = DateTime.Now.AddDays(-15)
-            });
+            //context.Orders.Add(new Order
+            //{
+            //    Name = "Hoodie",
+            //    Description = "25 hoodies required for Mphasis",
+            //    LastUpdated = DateTime.Now.AddDays(-15)
+            //});
 
-            context.Orders.Add(new Order
-            {
-                Name = "Table Cloth",
-                Description = "100 Table Cloth required for Larsen & Toubro Infotech",
-                LastUpdated = DateTime.Now.AddDays(-1)
-            });
+            //context.Orders.Add(new Order
+            //{
+            //    Name = "Table Cloth",
+            //    Description = "100 Table Cloth required for Larsen & Toubro Infotech",
+            //    LastUpdated = DateTime.Now.AddDays(-1)
+            //});
 
-            context.Orders.Add(new Order
-            {
-                Name = "T-Shirt",
-                Description = "1000 T-Shirt required for ALTEN Calsoft Labs",
-                LastUpdated = DateTime.Now.AddDays(-60)
-            });
+            //context.Orders.Add(new Order
+            //{
+            //    Name = "T-Shirt",
+            //    Description = "1000 T-Shirt required for ALTEN Calsoft Labs",
+            //    LastUpdated = DateTime.Now.AddDays(-60)
+            //});
 
-            context.Orders.Add(new Order
-            {
-                Name = "Banner",
-                Description = "10 Banner required for Aftek",
-                LastUpdated = DateTime.Now.AddDays(-2)
-            });
+            //context.Orders.Add(new Order
+            //{
+            //    Name = "Banner",
+            //    Description = "10 Banner required for Aftek",
+            //    LastUpdated = DateTime.Now.AddDays(-2)
+            //});
         }
 
         private void SeedClient(OrderProcessingDbContext context)
@@ -86,6 +87,17 @@ namespace OrderProcessingSystem.Data.DBInitializer
             context.ClientTypes.Add(new ClientType {Text = "Small Business"});
             context.ClientTypes.Add(new ClientType { Text = "Individual" });
             context.ClientTypes.Add(new ClientType { Text = "Corporation" });
+        }
+
+        private void SeedOrderStages(OrderProcessingDbContext context)
+        {
+            context.OrderStages.Add(new OrderStage {Name = "Intake", PercentageComplete = 0});
+            context.OrderStages.Add(new OrderStage { Name = "Fulfilling Inventory", PercentageComplete = 10 });
+            context.OrderStages.Add(new OrderStage { Name = "Billing", PercentageComplete = 30 });
+            context.OrderStages.Add(new OrderStage { Name = "Preparing for Shipment", PercentageComplete = 70 });
+            context.OrderStages.Add(new OrderStage { Name = "Shipped", PercentageComplete = 95 });
+            context.OrderStages.Add(new OrderStage { Name = "Delivery Confirmed", PercentageComplete = 100 });
+            context.OrderStages.Add(new OrderStage { Name = "On Hold", PercentageComplete = 0 });
         }
     }
 }
