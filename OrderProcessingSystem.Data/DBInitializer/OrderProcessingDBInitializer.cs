@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Linq;
 using OrderProcessingSystem.Models;
 
 namespace OrderProcessingSystem.Data.DBInitializer
@@ -15,43 +16,64 @@ namespace OrderProcessingSystem.Data.DBInitializer
         /// <param name="context">DBContext</param>
         protected override void Seed(OrderProcessingDbContext context)
         {
-            SeedOrders(context);
             SeedClient(context);
             SeedItem(context);
-            SeedClientType(context);
             SeedOrderStages(context);
+            SeedClientType(context);
+            context.SaveChanges();
+            SeedOrders(context);
             base.Seed(context);
         }
 
         private void SeedOrders(OrderProcessingDbContext context)
         {
-            //context.Orders.Add(new Order
-            //{
-            //    Name = "Hoodie",
-            //    Description = "25 hoodies required for Mphasis",
-            //    LastUpdated = DateTime.Now.AddDays(-15)
-            //});
+            context.Orders.Add(new Order
+            {
+                Item = context.Items.First(),
+                Client = context.Clients.First(),
+                AdditionalNotes = "The item is under process. Stay tuned for an update",
+                LastUpdatedDTTM = DateTime.Now.AddDays(-5),
+                OrderDate = DateTime.Now.AddDays(-10),
+                OrderStage = context.OrderStages.FirstOrDefault(e => e.Name == "Billing"),
+                ShippingAddress = "Mailing Address",
+                SpecialOrderInstructions = String.Empty
+            });
 
-            //context.Orders.Add(new Order
-            //{
-            //    Name = "Table Cloth",
-            //    Description = "100 Table Cloth required for Larsen & Toubro Infotech",
-            //    LastUpdated = DateTime.Now.AddDays(-1)
-            //});
+            context.Orders.Add(new Order
+            {
+                Item = context.Items.First(e => e.Name == "Table Cloth"),
+                Client = context.Clients.First(),
+                AdditionalNotes = "Order is shipped. You will soon receive the order.",
+                LastUpdatedDTTM = DateTime.Now.AddDays(-1),
+                OrderDate = DateTime.Now.AddDays(-9),
+                OrderStage = context.OrderStages.FirstOrDefault(e => e.Name == "Shipped"),
+                ShippingAddress = "Mailing Address",
+                SpecialOrderInstructions = String.Empty
+            });
 
-            //context.Orders.Add(new Order
-            //{
-            //    Name = "T-Shirt",
-            //    Description = "1000 T-Shirt required for ALTEN Calsoft Labs",
-            //    LastUpdated = DateTime.Now.AddDays(-60)
-            //});
+            context.Orders.Add(new Order
+            {
+                Item = context.Items.First(e => e.Name == "T-Shirt"),
+                Client = context.Clients.First(),
+                AdditionalNotes = "Order received and is under processing.",
+                LastUpdatedDTTM = DateTime.Now,
+                OrderDate = DateTime.Now.AddDays(-1),
+                OrderStage = context.OrderStages.FirstOrDefault(e => e.Name == "Intake"),
+                ShippingAddress = "Mailing Address",
+                SpecialOrderInstructions = String.Empty
+            });
 
-            //context.Orders.Add(new Order
-            //{
-            //    Name = "Banner",
-            //    Description = "10 Banner required for Aftek",
-            //    LastUpdated = DateTime.Now.AddDays(-2)
-            //});
+            context.Orders.Add(new Order
+            {
+                Item = context.Items.First(e => e.Name == "Streamers"),
+                Client = context.Clients.First(),
+                AdditionalNotes = "The item is under process. Stay tuned for an update",
+                LastUpdatedDTTM = DateTime.Now.AddDays(-2),
+                OrderDate = DateTime.Now.AddDays(-6),
+                OrderStage = context.OrderStages.FirstOrDefault(e => e.Name == "Fulfilling Inventory"),
+                ShippingAddress = "Mailing Address",
+                SpecialOrderInstructions = String.Empty
+            });
         }
 
         private void SeedClient(OrderProcessingDbContext context)
@@ -91,7 +113,7 @@ namespace OrderProcessingSystem.Data.DBInitializer
 
         private void SeedOrderStages(OrderProcessingDbContext context)
         {
-            context.OrderStages.Add(new OrderStage {Name = "Intake", PercentageComplete = 0});
+            context.OrderStages.Add(new OrderStage {Name = "Intake", PercentageComplete = 5});
             context.OrderStages.Add(new OrderStage { Name = "Fulfilling Inventory", PercentageComplete = 10 });
             context.OrderStages.Add(new OrderStage { Name = "Billing", PercentageComplete = 30 });
             context.OrderStages.Add(new OrderStage { Name = "Preparing for Shipment", PercentageComplete = 70 });

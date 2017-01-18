@@ -15,7 +15,10 @@ namespace OrderProcessingSystem.Web.Controllers
 
         public IActionResult Index()
         {
-            var orders = uow.Orders.GetAll().ToList();
+            uow.Orders.Include("OrderStage");
+            uow.Orders.Include("Item");
+
+            var orders = uow.Orders.GetAll().Where(e => e.OrderStage.PercentageComplete != 100 ).OrderBy(e => e.LastUpdatedDTTM).ToList();
             ViewBag.Orders = orders;
             return View();
         }

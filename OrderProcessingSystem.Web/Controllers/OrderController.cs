@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
 using OrderProcessingSystem.Models;
 
@@ -34,6 +35,7 @@ namespace OrderProcessingSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                newOrder.LastUpdatedDTTM = DateTime.Now;
                 uow.Orders.Add(newOrder);
                 uow.Commit();
                 return RedirectToAction("Index", "Home");

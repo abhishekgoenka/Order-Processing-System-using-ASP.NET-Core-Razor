@@ -1,4 +1,5 @@
-﻿<div id="page-wrapper">
+﻿@using OrderProcessingSystem.Models
+<div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -16,21 +17,20 @@
                 <div class="panel-body">
                     <div class="list-group">
                         
-                            @foreach (var order in ViewBag.Orders)
+                            @foreach (Order order in ViewBag.Orders)
                             {
                                 <a href="#" class="list-group-item">
                                     <h4 class="list-group-item-heading">
-                                        @*@order.Name*@
-                                        <span class="pull-right">Last Updated: @*@order.LastUpdated*@</span>
+                                        @order.Item.Name
+                                        <span Last-updated="@order.LastUpdatedDTTM" class="pull-right">Last Updated: @order.LastUpdatedDTTM</span>
                                     </h4>
                                     <p class="list-group-item-text">
-                                        @*@order.Description*@
+                                        @order.AdditionalNotes
                                     </p>
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
+                                        <progress-bar Percentage-complete="@order.OrderStage.PercentageComplete"></progress-bar>
                                     </div>
+
                                 </a>
                             }
                     </div>

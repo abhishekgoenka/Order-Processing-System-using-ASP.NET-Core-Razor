@@ -57,6 +57,11 @@ namespace OrderProcessingSystem.Models
         public string AdditionalNotes { get; set; }
 
         /// <summary>
+        /// Last updated date time of order
+        /// </summary>
+        public DateTime LastUpdatedDTTM { get; set; } = DateTime.Now;
+
+        /// <summary>
         ///     Navigational Property: Client
         /// </summary>
         public virtual Client Client { get; set; }
@@ -70,5 +75,8 @@ namespace OrderProcessingSystem.Models
         ///     Navigational Property: OrderStage
         /// </summary>
         public virtual OrderStage OrderStage { get; set; }
+
+
+      
     }
 }
