@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Processing System</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/sb-admin-2.css" rel="stylesheet" />
+    <link href="Content/custom.css" rel="stylesheet" />
+
+    <script src="scripts/jquery-1.10.2.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Order Processing System</a>
+            </div>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <br />
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <span><i class="fa fa-edit fa-fw"></i> Clients</span>
+                            <ul class="nav nav-second-level in">
+                                <li>
+                                    <a href="NewClient.html">New Client</a>
+                                </li>
+                                <li>
+                                    <a href="AllClient.html">All Clients</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-edit fa-fw"></i> Orders</span>
+                            <ul class="nav nav-second-level in">
+                                <li>
+                                    <a href="NewOrder.html">New Order</a>
+                                </li>
+                                <li>
+                                    <a href="/Messages/ViewMessages">In Progress Orders</a>
+                                </li>
+
+                                <li>
+                                    <a href="/Messages/ViewMessages">Order History</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span><i class="fa fa-edit fa-fw"></i> Inventory</span>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="NewItem.html">New Item</a>
+                                </li>
+                                <li>
+                                    <a href="CurrentInventory.html">Current Inventory</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Begin View Wrapper -->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                Client List<br/>
+                <small>We're always happy to gain new customers.</small>
+            </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Abhishek</td>
+                                <td>Goenka</td>
+                                <td>abhishek@nblog.in</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Steve</td>
+                                <td>Freen</td>
+                                <td>steve.freen@gmail.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!-- End View Wrapper -->
+    </div>
+    <footer>
+        <p>&copy; 2016 Abhishek Goenka<span class="pull-right">Contact Help Desk at 555-555-1342</span></p>
+    </footer>
+    <!-- End Page Wrapper -->
+    <style>
+        .product-list .row {
+            margin-bottom: 10px;
+        }
+        
+        .product-list {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    </style>
+</body>
+
+</html>

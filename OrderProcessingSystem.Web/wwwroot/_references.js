@@ -1,7 +1,4 @@
 ﻿/// <autosync enabled="true" />
-/// <reference path="../references/html template/scripts/jquery.validate.js" />
-/// <reference path="../references/html template/scripts/jquery.validate.unobtrusive.js" />
-/// <reference path="../references/html template/scripts/jquery-1.10.2.js" />
 /// <reference path="js/jquery.validate.js" />
 /// <reference path="js/jquery.validate.unobtrusive.js" />
 /// <reference path="js/jquery-1.10.2.js" />

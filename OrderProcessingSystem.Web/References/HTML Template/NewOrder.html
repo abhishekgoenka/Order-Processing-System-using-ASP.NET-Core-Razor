@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <script src="scripts/jquery.validate.js"></script>
     <script src="scripts/jquery.validate.unobtrusive.js"></script>
 </head>
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -33,10 +35,10 @@
                             <span><i class="fa fa-edit fa-fw"></i> Clients</span>
                             <ul class="nav nav-second-level in">
                                 <li>
-                                    <a href="/Messages/ViewMessages">New Client</a>
+                                    <a href="NewClient.html">New Client</a>
                                 </li>
                                 <li>
-                                    <a href="/Messages/ViewMessages">All Clients</a>
+                                    <a href="AllClient.html">All Clients</a>
                                 </li>
                             </ul>
                         </li>
@@ -44,7 +46,7 @@
                             <span><i class="fa fa-edit fa-fw"></i> Orders</span>
                             <ul class="nav nav-second-level in">
                                 <li>
-                                    <a href="/Messages/ViewMessages">New Order</a>
+                                    <a href="NewOrder.html">New Order</a>
                                 </li>
                                 <li>
                                     <a href="/Messages/ViewMessages">In Progress Orders</a>
@@ -59,10 +61,10 @@
                             <span><i class="fa fa-edit fa-fw"></i> Inventory</span>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/Task/CreateEditTask">New Item</a>
+                                    <a href="NewItem.html">New Item</a>
                                 </li>
                                 <li>
-                                    <a href="/Task/ViewTasks">Current Inventory</a>
+                                    <a href="CurrentInventory.html">Current Inventory</a>
                                 </li>
                             </ul>
                         </li>
@@ -85,10 +87,14 @@
                     <div class="col-md-6">
                         <div class="row form-group">
                             <label class="col-xs-12">Client Id</label>
-                            <div class="col-xs-9"><input type="text" class="form-control" /></div>
-							<div class="col-xs-3"><button class="btn btn-default">Lookup</button></div>
+                            <div class="col-xs-9">
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="col-xs-3">
+                                <button class="btn btn-default">Lookup</button>
+                            </div>
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <label>Company Name</label>
                             <input type="text" class="form-control" />
                         </div>
@@ -99,72 +105,93 @@
                         <div class="form-group">
                             <label>Stage</label>
                             <select class="form-control">
-								<option>Intake</option>
-								<option>Fulfilling Inventory</option>
-								<option>Billing</option>
-								<option>Preparing for Shipment</option>
-								<option>Shipped</option>
-								<option>Delivery Confirmed</option>
-								<option>On Hold</option>
-							</select>
+                                <option>Intake</option>
+                                <option>Fulfilling Inventory</option>
+                                <option>Billing</option>
+                                <option>Preparing for Shipment</option>
+                                <option>Shipped</option>
+                                <option>Delivery Confirmed</option>
+                                <option>On Hold</option>
+                            </select>
                         </div>
-						<div class="product-list">
-							<div class="row">
-								<div class="col-xs-6"><label>Hoodie</label></div>
-								<div class="col-xs-6"><input placeholder="Quantity" type="text" class="form-control"></div>
-							</div>	
-							<div class="row">
-								<div class="col-xs-6"><label>T-Shirt</label></div>
-								<div class="col-xs-6"><input placeholder="Quantity" type="text" class="form-control"></div>
-							</div>	
-							<div class="row">
-								<div class="col-xs-6"><label>Table Cloth</label></div>
-								<div class="col-xs-6"><input placeholder="Quantity" type="text" class="form-control"></div>
-							</div>	
-							<div class="row">
-								<div class="col-xs-6"><label>Banner</label></div>
-								<div class="col-xs-6"><input placeholder="Quantity" type="text" class="form-control"></div>
-							</div>	
-							<div class="row">
-								<div class="col-xs-6"><label>Streamers</label></div>
-								<div class="col-xs-6"><input placeholder="Quantity" type="text" class="form-control"></div>
-							</div>	
-						</div>
-						 <div class="form-group">
+                        <div class="product-list">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>Hoodie</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input placeholder="Quantity" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>T-Shirt</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input placeholder="Quantity" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>Table Cloth</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input placeholder="Quantity" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>Banner</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input placeholder="Quantity" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>Streamers</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input placeholder="Quantity" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label>Shpping Address</label>
                             <select class="form-control">
-								<option>Mailing Address</option>
-								<option>Billing Address</option>
-							</select>
+                                <option>Mailing Address</option>
+                                <option>Billing Address</option>
+                            </select>
                         </div>
-						<div class="form-group">
-                                <label>Special Order Instructions</label>
-                                <textarea type="text" class="form-control" rows="5"  ></textarea>
+                        <div class="form-group">
+                            <label>Special Order Instructions</label>
+                            <textarea type="text" class="form-control" rows="5"></textarea>
                         </div>
-						<div class="form-group">
-                                <label>Additional Notes</label>
-                                <textarea type="text" class="form-control" rows="5"  ></textarea>
+                        <div class="form-group">
+                            <label>Additional Notes</label>
+                            <textarea type="text" class="form-control" rows="5"></textarea>
                         </div>
-						<input type="submit" class="btn btn-primary pull-right">
+                        <input type="submit" class="btn btn-primary pull-right">
                     </div>
                 </div>
-            </form> 
+            </form>
         </div>
-		<!-- End View Wrapper -->
+        <!-- End View Wrapper -->
     </div>
     <footer>
         <p>&copy; 2016 Abhishek Goenka<span class="pull-right">Contact Help Desk at 555-555-1342</span></p>
     </footer>
     <!-- End Page Wrapper -->
-	<style>
-		.product-list .row {
-			margin-bottom: 10px;
-		}
-		
-		.product-list {
-			margin-top: 25px;
-			margin-bottom: 25px;
-		}
-	</style>
+    <style>
+        .product-list .row {
+            margin-bottom: 10px;
+        }
+        
+        .product-list {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    </style>
 </body>
+
 </html>
