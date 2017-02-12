@@ -5,13 +5,13 @@
       "type": "project",
       "framework": ".NETFramework,Version=v4.6.1",
       "compile": {
-        "bin/Debug/OrderProcessingSystem.Contracts.dll": {}
+        "bin/Release/OrderProcessingSystem.Contracts.dll": {}
       },
       "runtime": {
-        "bin/Debug/OrderProcessingSystem.Contracts.dll": {}
+        "bin/Release/OrderProcessingSystem.Contracts.dll": {}
       },
       "contentFiles": {
-        "bin/Debug/OrderProcessingSystem.Contracts.pdb": {
+        "bin/Release/OrderProcessingSystem.Contracts.pdb": {
           "buildAction": "None",
           "codeLanguage": "any",
           "copyToOutput": true
@@ -22,15 +22,15 @@
       "type": "project",
       "framework": ".NETFramework,Version=v4.6.1",
       "compile": {
-        "bin/Debug/OrderProcessingSystem.Data.dll": {}
+        "bin/Release/OrderProcessingSystem.Data.dll": {}
       },
       "runtime": {
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
-        "bin/Debug/OrderProcessingSystem.Data.dll": {}
+        "bin/Release/OrderProcessingSystem.Data.dll": {}
       },
       "contentFiles": {
-        "bin/Debug/OrderProcessingSystem.Data.pdb": {
+        "bin/Release/OrderProcessingSystem.Data.pdb": {
           "buildAction": "None",
           "codeLanguage": "any",
           "copyToOutput": true
@@ -41,13 +41,13 @@
       "type": "project",
       "framework": ".NETFramework,Version=v4.6.1",
       "compile": {
-        "bin/Debug/OrderProcessingSystem.Models.dll": {}
+        "bin/Release/OrderProcessingSystem.Models.dll": {}
       },
       "runtime": {
-        "bin/Debug/OrderProcessingSystem.Models.dll": {}
+        "bin/Release/OrderProcessingSystem.Models.dll": {}
       },
       "contentFiles": {
-        "bin/Debug/OrderProcessingSystem.Models.pdb": {
+        "bin/Release/OrderProcessingSystem.Models.pdb": {
           "buildAction": "None",
           "codeLanguage": "any",
           "copyToOutput": true

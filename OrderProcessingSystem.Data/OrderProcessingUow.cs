@@ -5,13 +5,18 @@ using OrderProcessingSystem.Models;
 
 namespace OrderProcessingSystem.Data
 {
+    /// <summary>
+    ///     Order Processing unit of work
+    /// </summary>
     public class OrderProcessingUow : IOrderProcessingUow
     {
+        private readonly DBConnectionString _dbConnectionString;
         // Track whether Dispose has been called. 
         private bool disposed;
 
-        public OrderProcessingUow(IRepositoryProvider repositoryProvider)
+        public OrderProcessingUow(IRepositoryProvider repositoryProvider, DBConnectionString dbConnectionString)
         {
+            _dbConnectionString = dbConnectionString;
             CreateDbContext();
 
             repositoryProvider.DbContext = DbContext;
@@ -40,7 +45,7 @@ namespace OrderProcessingSystem.Data
 
         protected void CreateDbContext()
         {
-            DbContext = new OrderProcessingDbContext();
+            DbContext = new OrderProcessingDbContext(_dbConnectionString.ConnectionString);
 
             // Do NOT enable proxied entities, else serialization fails
             DbContext.Configuration.ProxyCreationEnabled = false;
@@ -50,8 +55,6 @@ namespace OrderProcessingSystem.Data
 
             // Because Web API will perform validation, we don't need/want EF to do so
             DbContext.Configuration.ValidateOnSaveEnabled = false;
-
-            
         }
 
         private IRepository<T> GetStandardRepo<T>() where T : class
@@ -95,10 +98,7 @@ namespace OrderProcessingSystem.Data
                 // If disposing equals true, dispose all managed 
                 // and unmanaged resources. 
                 if (disposing)
-                {
-                    // Dispose managed resources.
                     DbContext.Dispose();
-                }
 
                 // Call the appropriate methods to clean up 
                 // unmanaged resources here. 

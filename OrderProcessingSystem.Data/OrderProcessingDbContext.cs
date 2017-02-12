@@ -10,10 +10,8 @@ namespace OrderProcessingSystem.Data
     /// </summary>
     public class OrderProcessingDbContext : DbContext
     {
-        //todo : move to config file
-        private const String CONNECTION_STRING = "Data Source=(local);Initial Catalog=OrderProcessing;Persist Security Info=True;User ID=sa;Password=Computer#1";
-        public OrderProcessingDbContext()
-            : base(CONNECTION_STRING)
+        public OrderProcessingDbContext(String connectionString)
+            : base(connectionString)
         {
             Database.SetInitializer(new OrderProcessingDBInitializer());
         }

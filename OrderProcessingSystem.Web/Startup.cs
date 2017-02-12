@@ -26,7 +26,9 @@ namespace OrderProcessingSystem.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
+            // inject framework services.
+            services.AddScoped(
+                config => new DBConnectionString(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<RepositoryFactories, RepositoryFactories>();
             services.AddScoped<IRepositoryProvider, RepositoryProvider>();
             services.AddScoped<IOrderProcessingUow, OrderProcessingUow>();
