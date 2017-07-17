@@ -3,6 +3,7 @@ Order Processing sample application developed in ASP.NET Core Razor(.NET Framewo
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/abhishekgoenka/Order-Processing-System-using-ASP.NET-Core-Razor/issues)
 
+https://opensourcerepo2.visualstudio.com/_apis/public/build/definitions/8a1f66d9-91a2-4271-9dd4-ba35933eb016/1/badge
 
 # Getting Started
 Open OrderProcessingSystem.sln solution in Visual Studio 2015 or higher. Update the connection string in OrderProcessingDbContext.cs file. Compile and run the application.
