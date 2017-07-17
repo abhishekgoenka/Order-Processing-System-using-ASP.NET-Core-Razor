@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <Description>Order Processing Website</Description>
@@ -9,6 +9,10 @@
     <AssemblyName>OrderProcessingSystem.Web</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>OrderProcessingSystem.Web</PackageId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
