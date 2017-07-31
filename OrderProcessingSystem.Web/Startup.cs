@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using OrderProcessingSystem.Contracts;
 using OrderProcessingSystem.Data;
@@ -15,8 +20,8 @@ namespace OrderProcessingSystem.Web
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddJsonFile("appsettings.json", true, true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -32,7 +37,30 @@ namespace OrderProcessingSystem.Web
             services.AddScoped<RepositoryFactories, RepositoryFactories>();
             services.AddScoped<IRepositoryProvider, RepositoryProvider>();
             services.AddScoped<IOrderProcessingUow, OrderProcessingUow>();
-            services.AddMvc();
+
+            //Whether or not a user wants a LanguageViewLocationExpander in this application, 
+            //AddViewLocalization method is the one-stop shop for registering IHtmlLocalizer<T>, IStringLocalizer<T>, 
+            //and IViewLocalizer in an MVC application
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
+
+            services.Configure<LocalizationOptions>(options =>
+            {
+                options.ResourcesPath = "Resources";
+            });
+
+            // supported culture
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.SupportedUICultures = new List<CultureInfo>
+                {
+                    new CultureInfo("en-US"),
+                    new CultureInfo("es-MX"),
+                    new CultureInfo("de-DE")
+                };
+                options.DefaultRequestCulture = new RequestCulture("en-US");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,12 +80,12 @@ namespace OrderProcessingSystem.Web
             }
 
             app.UseStaticFiles();
-
+            app.UseRequestLocalization();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

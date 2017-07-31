@@ -1,4 +1,7 @@
 ﻿@model List<OrderProcessingSystem.Models.InventoryItemViewModel>
+@inject IHtmlLocalizer<HomeController> localizer
+@using Microsoft.AspNetCore.Mvc.Localization
+@using OrderProcessingSystem.Web.Controllers
 <div class="panel panel-danger widget">
     <div class="panel-heading">
         <div class="row">
@@ -6,7 +9,7 @@
                 <i class="fa fa-tasks fa-3x"></i>
             </div>
             <div class="col-xs-9 text-right">
-                <h3>Low Inventory Item</h3>
+                <h3>@localizer["LowInventoryItem"]</h3>
             </div>
         </div>
     </div>
@@ -14,8 +17,8 @@
         <table class="table table-fluid table-striped">
             <thead>
             <tr>
-                <th>Product</th>
-                <th>Inventory Count</th>
+                <th>@localizer["Product"]</th>
+                <th>@localizer["InventoryCount"]</th>
             </tr>
             </thead>
             <tbody>

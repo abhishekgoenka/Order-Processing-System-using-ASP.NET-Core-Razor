@@ -1,4 +1,7 @@
 ﻿@model List<OrderProcessingSystem.Models.ItemServeryViewModel>
+@inject IHtmlLocalizer<HomeController> localizer
+@using Microsoft.AspNetCore.Mvc.Localization
+@using OrderProcessingSystem.Web.Controllers
 <div class="panel panel-primary widget">
     <div class="panel-heading">
         <div class="row">
@@ -6,7 +9,7 @@
                 <i class="fa fa-comments fa-3x"></i>
             </div>
             <div class="col-xs-9 text-right">
-                <h3>Coolest Product</h3>
+                <h3>@localizer["CoolestProduct"]</h3>
             </div>
         </div>
     </div>
@@ -14,8 +17,8 @@
         <table class="table table-fluid table-striped">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Add Vote</th>
+                    <th>@localizer["Product"]</th>
+                    <th>@localizer["AddVote"]</th>
                 </tr>
             </thead>
             <tbody>

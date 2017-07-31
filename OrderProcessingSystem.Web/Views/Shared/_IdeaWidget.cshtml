@@ -1,18 +1,21 @@
-﻿<div class="panel panel-green widget">
+﻿@inject IHtmlLocalizer<HomeController> localizer
+@using Microsoft.AspNetCore.Mvc.Localization
+@using OrderProcessingSystem.Web.Controllers
+<div class="panel panel-green widget">
     <div class="panel-heading">
         <div class="row">
             <div class="col-xs-3">
                 <i class="fa fa-tasks fa-3x"></i>
             </div>
             <div class="col-xs-9 text-right">
-                <h3>Idea Center</h3>
+                <h3>@localizer["IdeaCenter"]</h3>
             </div>
         </div>
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="col-xs-12 feature-request">
-                <p>Have an idea for new marketing materials or methods? Don't keep it to yourself!</p>
+                <p>@localizer["IdeaCenterDescription"]</p>
                 <form action="/Home/FeatureRequest" method="post">
 
                     <input type="text" class="form-control" placeholder="Subject " /> <br />
