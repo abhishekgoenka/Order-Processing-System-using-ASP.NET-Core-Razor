@@ -40,10 +40,11 @@
     <script src="~/js/jquery.validate.js"></script>
     <script src="~/js/jquery.validate.unobtrusive.js"></script>
     <script type="text/javascript">
-        (function () {
-            $("#cultureForm select").on("change", function () {
-                $(this).parent().submit();
-            });
+        (function() {
+            $("#cultureForm select").on("change",
+                function() {
+                    $(this).parent().submit();
+                });
         }());
     </script>
 </environment>

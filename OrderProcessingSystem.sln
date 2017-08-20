@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderProcessingSystem.Web", "OrderProcessingSystem.Web\OrderProcessingSystem.Web.csproj", "{C7BC4BEB-EA58-4E16-985A-3D3FE5091834}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.Models", "OrderProcessingSystem.Models\OrderProcessingSystem.Models.csproj", "{75998486-10F3-498E-AB52-67F12873DA57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.Contracts", "OrderProcessingSystem.Contracts\OrderProcessingSystem.Contracts.csproj", "{5C14F405-941B-4BAC-ABD9-968152FE647A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.Data", "OrderProcessingSystem.Data\OrderProcessingSystem.Data.csproj", "{F141E340-D35C-44E4-9C5E-9DDBB37F0026}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.Web", "OrderProcessingSystem.Web\OrderProcessingSystem.Web.csproj", "{ECA3497D-3B7F-4B71-A458-545D457C52A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C7BC4BEB-EA58-4E16-985A-3D3FE5091834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7BC4BEB-EA58-4E16-985A-3D3FE5091834}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7BC4BEB-EA58-4E16-985A-3D3FE5091834}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7BC4BEB-EA58-4E16-985A-3D3FE5091834}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75998486-10F3-498E-AB52-67F12873DA57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75998486-10F3-498E-AB52-67F12873DA57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75998486-10F3-498E-AB52-67F12873DA57}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,8 +29,15 @@ Global
 		{F141E340-D35C-44E4-9C5E-9DDBB37F0026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F141E340-D35C-44E4-9C5E-9DDBB37F0026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F141E340-D35C-44E4-9C5E-9DDBB37F0026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA3497D-3B7F-4B71-A458-545D457C52A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA3497D-3B7F-4B71-A458-545D457C52A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA3497D-3B7F-4B71-A458-545D457C52A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA3497D-3B7F-4B71-A458-545D457C52A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7732648-6D49-40D8-925F-AAB3FE8A8A0F}
 	EndGlobalSection
 EndGlobal
