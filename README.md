@@ -6,7 +6,7 @@ Order Processing sample application developed in ASP.NET Core Razor(.NET Framewo
 
 
 # Getting Started
-Open OrderProcessingSystem.sln solution in Visual Studio 2017CU3. Update the connection string in appsettings.json file. Compile and run the application.
+Open OrderProcessingSystem.sln solution in Visual Studio 2017CU3. Update the connection string in appsettings.json file. Compile and run the application..
 
 Home page is localized in three languages – English(default), Spanish and German. I will be converting other pages as time permits.
 
