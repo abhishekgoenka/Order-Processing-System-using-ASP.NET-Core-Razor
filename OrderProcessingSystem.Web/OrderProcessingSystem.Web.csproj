@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
+    <Description>Order Processing Website</Description>
+    <Copyright>Abhishek Goenka</Copyright>
+    <AssemblyTitle>Order Processing Website</AssemblyTitle>
     <TargetFramework>net461</TargetFramework>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
     <ApplicationIcon>wwwroot\favicon.ico</ApplicationIcon>
@@ -25,6 +28,10 @@
     <ProjectReference Include="..\OrderProcessingSystem.Contracts\OrderProcessingSystem.Contracts.csproj" />
     <ProjectReference Include="..\OrderProcessingSystem.Data\OrderProcessingSystem.Data.csproj" />
     <ProjectReference Include="..\OrderProcessingSystem.Models\OrderProcessingSystem.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Views\Home\" />
   </ItemGroup>
 
 </Project>
