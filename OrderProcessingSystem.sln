@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.Data", "OrderProcessingSystem.Data\OrderProcessingSystem.Data.csproj", "{F141E340-D35C-44E4-9C5E-9DDBB37F0026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.Web", "OrderProcessingSystem.Web\OrderProcessingSystem.Web.csproj", "{ECA3497D-3B7F-4B71-A458-545D457C52A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderProcessingSystem.Web", "OrderProcessingSystem.Web\OrderProcessingSystem.Web.csproj", "{ECA3497D-3B7F-4B71-A458-545D457C52A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingSystem.IdP", "OrderProcessingSystem.IdP\OrderProcessingSystem.IdP.csproj", "{8D0EB659-1E86-4147-89F1-46CFA131F70D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{ECA3497D-3B7F-4B71-A458-545D457C52A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECA3497D-3B7F-4B71-A458-545D457C52A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECA3497D-3B7F-4B71-A458-545D457C52A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0EB659-1E86-4147-89F1-46CFA131F70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0EB659-1E86-4147-89F1-46CFA131F70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0EB659-1E86-4147-89F1-46CFA131F70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0EB659-1E86-4147-89F1-46CFA131F70D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
