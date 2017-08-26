@@ -1,9 +1,12 @@
 ﻿using System.Linq;
+using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
 
 namespace OrderProcessingSystem.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IOrderProcessingUow uow;

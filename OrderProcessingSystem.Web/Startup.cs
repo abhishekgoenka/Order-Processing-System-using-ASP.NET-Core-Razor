@@ -79,6 +79,25 @@ namespace OrderProcessingSystem.Web
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationScheme = "Cookies"
+            });
+
+            app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
+            {
+                AuthenticationScheme = "oidc",
+                Authority = "https://localhost:44392/",
+                RequireHttpsMetadata = true,
+                ClientId = "OrderProcessingSystemCORE",
+                Scope = { "openid", "profile"},
+                ResponseType = "code id_token",
+                SignInScheme = "Cookies",
+                SaveTokens = true,
+                ClientSecret = "secret"
+
+            });
+
             app.UseStaticFiles();
             app.UseRequestLocalization();
             app.UseMvc(routes =>
