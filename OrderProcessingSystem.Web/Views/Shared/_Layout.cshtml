@@ -12,6 +12,12 @@
         <link href="~/css/sb-admin-2.css" rel="stylesheet"/>
         <link href="~/css/custom.css" rel="stylesheet"/>
     </environment>
+    <environment Names="Production">
+        <link href="~/css/bootstrap.css" rel="stylesheet"/>
+        <link href="~/css/font-awesome.css" rel="stylesheet"/>
+        <link href="~/css/sb-admin-2.css" rel="stylesheet"/>
+        <link href="~/css/custom.css" rel="stylesheet"/>
+    </environment>
 </head>
 <body>
 <div id="wrapper">
@@ -36,6 +42,19 @@
     }
 </footer>
 <environment Names="development">
+    <script src="~/js/jquery-1.10.2.js"></script>
+    <script src="~/js/jquery.validate.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript">
+        (function() {
+            $("#cultureForm select").on("change",
+                function() {
+                    $(this).parent().submit();
+                });
+        }());
+    </script>
+</environment>
+<environment Names="Production">
     <script src="~/js/jquery-1.10.2.js"></script>
     <script src="~/js/jquery.validate.js"></script>
     <script src="~/js/jquery.validate.unobtrusive.js"></script>

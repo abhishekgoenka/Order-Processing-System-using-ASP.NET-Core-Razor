@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
 using OrderProcessingSystem.Models;
@@ -8,6 +9,7 @@ namespace OrderProcessingSystem.Web.Controllers
     /// <summary>
     ///     Client Controller
     /// </summary>
+    [Authorize]
     public class ClientController : Controller
     {
         private readonly IOrderProcessingUow uow;
@@ -41,6 +43,7 @@ namespace OrderProcessingSystem.Web.Controllers
         /// <param name="newClient">Client</param>
         /// <returns>View</returns>
         [HttpPost]
+        [Authorize(Roles = "administrator")]
         public IActionResult NewClient(Client newClient)
         {
             if (ModelState.IsValid)

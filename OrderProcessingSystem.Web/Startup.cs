@@ -96,7 +96,7 @@ namespace OrderProcessingSystem.Web
                 Authority = "https://localhost:44392/",
                 RequireHttpsMetadata = true,
                 ClientId = "OrderProcessingSystemCORE",
-                Scope = {"openid", "profile"},
+                Scope = {"openid", "profile", "roles"},
                 ResponseType = "code id_token",
                 SignInScheme = "Cookies",
                 SaveTokens = true,
@@ -123,7 +123,10 @@ namespace OrderProcessingSystem.Web
                         return Task.FromResult(0);
                     },
 
-                    OnUserInformationReceived = userInformationReceivedContext => Task.FromResult(0)
+                    OnUserInformationReceived = userInformationReceivedContext =>
+                    {
+                        return Task.FromResult(0);
+                    }
                 }
             });
 

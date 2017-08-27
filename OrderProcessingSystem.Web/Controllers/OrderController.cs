@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
 using OrderProcessingSystem.Models;
@@ -8,6 +9,7 @@ namespace OrderProcessingSystem.Web.Controllers
     /// <summary>
     ///     Order Controller
     /// </summary>
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderProcessingUow uow;
@@ -31,6 +33,7 @@ namespace OrderProcessingSystem.Web.Controllers
         /// </summary>
         /// <returns>Dashboard</returns>
         [HttpPost]
+        [Authorize(Roles = "administrator")]
         public IActionResult SaveOrder(Order newOrder)
         {
             if (ModelState.IsValid)

@@ -30,45 +30,49 @@
                     
                     </li>
                 }
-                <li>
-                    <span><i class="fa fa-edit fa-fw"></i> Clients</span>
-                    <ul class="nav nav-second-level in">
-                        <li>
-                            <a asp-controller="Client" asp-action="NewClient">New Client</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Client" asp-action="ShowAllClients">All Client</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
+                @if (User.IsInRole("administrator"))
+                {
+                    <li>
+                        <span><i class="fa fa-edit fa-fw"></i> Clients</span>
+                        <ul class="nav nav-second-level in">
+                            <li>
+                                <a asp-controller="Client" asp-action="NewClient">New Client</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Client" asp-action="ShowAllClients">All Client</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
 
-                    <span><i class="fa fa-edit fa-fw"></i> Orders</span>
-                    <ul class="nav nav-second-level in">
-                        <li>
-                            <a asp-controller="Order" asp-action="NewOrder">New Order</a>
-                        </li>
-                        <li>
-                            <a href="#">In Progress Orders</a>
-                        </li>
+                        <span><i class="fa fa-edit fa-fw"></i> Orders</span>
+                        <ul class="nav nav-second-level in">
+                            <li>
+                                <a asp-controller="Order" asp-action="NewOrder">New Order</a>
+                            </li>
+                            <li>
+                                <a href="#">In Progress Orders</a>
+                            </li>
 
-                        <li>
-                            <a href="#">Order History</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <span><i class="fa fa-edit fa-fw"></i> Inventory</span>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a asp-controller="Item" asp-action="NewItem">New Item</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Item" asp-action="CurrentInventory">Current Inventory</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                            <li>
+                                <a href="#">Order History</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-edit fa-fw"></i> Inventory</span>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a asp-controller="Item" asp-action="NewItem">New Item</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Item" asp-action="CurrentInventory">Current Inventory</a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                </ul>
+                
         </div>
     </div>
 </nav>

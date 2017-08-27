@@ -28,9 +28,10 @@ namespace OrderProcessingSystem.IdP
                     Password = "admin",
                     Claims = new List<Claim>
                     {
-                        new Claim("given_name", "Abhishek"),
-                        new Claim("family_name", "Goenka"),
-                        new Claim(JwtClaimTypes.Name, "Abhishek Goenka")
+                        new Claim(JwtClaimTypes.GivenName, "Abhishek"),
+                        new Claim(JwtClaimTypes.FamilyName, "Goenka"),
+                        new Claim(JwtClaimTypes.Name, "Abhishek Goenka"),
+                        new Claim(JwtClaimTypes.Role, "administrator")
                     }
                 }
             };
@@ -45,7 +46,8 @@ namespace OrderProcessingSystem.IdP
             return new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResource("roles", "Your Role(s)", new List<string> { JwtClaimTypes.Role })
             };
         }
 
@@ -70,6 +72,7 @@ namespace OrderProcessingSystem.IdP
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        "roles"
                     },
                     ClientSecrets =
                     {

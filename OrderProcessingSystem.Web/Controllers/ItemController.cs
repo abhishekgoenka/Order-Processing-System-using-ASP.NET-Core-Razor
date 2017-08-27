@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrderProcessingSystem.Contracts;
 using OrderProcessingSystem.Models;
@@ -8,6 +9,7 @@ namespace OrderProcessingSystem.Web.Controllers
     /// <summary>
     ///     Item Controller
     /// </summary>
+    [Authorize]
     public class ItemController : Controller
     {
         private readonly IOrderProcessingUow uow;
@@ -32,6 +34,7 @@ namespace OrderProcessingSystem.Web.Controllers
         /// <param name="newItem">Item</param>
         /// <returns>Route to home page</returns>
         [HttpPost]
+        [Authorize(Roles = "administrator")]
         public IActionResult NewItem(Item newItem)
         {
             if (ModelState.IsValid)
@@ -76,6 +79,7 @@ namespace OrderProcessingSystem.Web.Controllers
         /// </summary>
         /// <param name="Id">Item Id</param>
         /// <returns>Item page</returns>
+        [Authorize(Roles = "administrator")]
         public IActionResult UpdateInventory(int Id)
         {
             var item = uow.Items.GetById(Id);
