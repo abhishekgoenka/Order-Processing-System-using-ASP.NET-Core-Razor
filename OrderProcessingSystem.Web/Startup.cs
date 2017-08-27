@@ -94,7 +94,8 @@ namespace OrderProcessingSystem.Web
                 ResponseType = "code id_token",
                 SignInScheme = "Cookies",
                 SaveTokens = true,
-                ClientSecret = "secret"
+                ClientSecret = "secret",
+                GetClaimsFromUserInfoEndpoint = true
 
             });
 

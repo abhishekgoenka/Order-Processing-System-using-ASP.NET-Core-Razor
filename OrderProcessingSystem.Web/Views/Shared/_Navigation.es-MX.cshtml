@@ -16,6 +16,20 @@
         <div class="sidebar-nav navbar-collapse">
             <br/>
             <ul class="nav" id="side-menu">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <span><i class="fa fa-user fa-fw"></i> Welcome @User.Identity.Name</span>
+                        <ul class="nav nav-second-level in">
+
+                            <li>
+                                <a asp-controller="Account" asp-action="Logout">Cerrar sesión</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+                }
                 <li>
                     <span><i class="fa fa-edit fa-fw"></i> Clientela</span>
                     <ul class="nav nav-second-level in">

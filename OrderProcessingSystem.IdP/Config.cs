@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
@@ -28,7 +29,8 @@ namespace OrderProcessingSystem.IdP
                     Claims = new List<Claim>
                     {
                         new Claim("given_name", "Abhishek"),
-                        new Claim("family_name", "Goenka")
+                        new Claim("family_name", "Goenka"),
+                        new Claim(JwtClaimTypes.Name, "Abhishek Goenka")
                     }
                 }
             };
@@ -72,7 +74,12 @@ namespace OrderProcessingSystem.IdP
                     ClientSecrets =
                     {
                         new Secret("secret".Sha256())
+                    },
+                    PostLogoutRedirectUris =
+                    {
+                        "https://localhost:44369/signout-callback-oidc"
                     }
+                    //AlwaysIncludeUserClaimsInIdToken = true
                 }
             };
         }
