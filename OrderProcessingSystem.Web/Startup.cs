@@ -1,5 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -20,8 +26,8 @@ namespace OrderProcessingSystem.Web
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddJsonFile("appsettings.json", false, true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -45,10 +51,7 @@ namespace OrderProcessingSystem.Web
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
 
-            services.Configure<LocalizationOptions>(options =>
-            {
-                options.ResourcesPath = "Resources";
-            });
+            services.Configure<LocalizationOptions>(options => { options.ResourcesPath = "Resources"; });
 
             // supported culture
             services.Configure<RequestLocalizationOptions>(options =>
@@ -84,19 +87,44 @@ namespace OrderProcessingSystem.Web
                 AuthenticationScheme = "Cookies"
             });
 
+            //This will clear any previous claim type maps.
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
             app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
             {
                 AuthenticationScheme = "oidc",
                 Authority = "https://localhost:44392/",
                 RequireHttpsMetadata = true,
                 ClientId = "OrderProcessingSystemCORE",
-                Scope = { "openid", "profile"},
+                Scope = {"openid", "profile"},
                 ResponseType = "code id_token",
                 SignInScheme = "Cookies",
                 SaveTokens = true,
                 ClientSecret = "secret",
-                GetClaimsFromUserInfoEndpoint = true
+                GetClaimsFromUserInfoEndpoint = true,
+                Events = new OpenIdConnectEvents
+                {
+                    OnTokenValidated = tokenValidatedContext =>
+                    {
+                        //remove unused claims
+                        var identity = tokenValidatedContext.Ticket.Principal.Identity as ClaimsIdentity;
+                        if (identity != null)
+                        {
+                            var subjectClaim = identity.Claims.FirstOrDefault(s => s.Type == "sub");
 
+                            var newClaimIdentity = new ClaimsIdentity(tokenValidatedContext.Ticket.AuthenticationScheme,
+                                "given_name", "role");
+                            newClaimIdentity.AddClaim(subjectClaim);
+                            tokenValidatedContext.Ticket =
+                                new AuthenticationTicket(new ClaimsPrincipal(newClaimIdentity),
+                                    tokenValidatedContext.Ticket.Properties,
+                                    tokenValidatedContext.Ticket.AuthenticationScheme);
+                        }
+                        return Task.FromResult(0);
+                    },
+
+                    OnUserInformationReceived = userInformationReceivedContext => Task.FromResult(0)
+                }
             });
 
             app.UseStaticFiles();
@@ -104,8 +132,8 @@ namespace OrderProcessingSystem.Web
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
